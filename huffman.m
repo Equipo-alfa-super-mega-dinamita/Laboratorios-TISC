@@ -1,11 +1,14 @@
 function binary = huffman(vector)
   matrix = [];
   auxVector = vector;
-  for i = 1:length(vector) -1
-    auxVector = sort(auxVector);
+  auxVector = sort(auxVector);
+  matrix = [matrix; auxVector];
+  for i = 1:length(vector) -2
     newNum = auxVector(1) + auxVector(2);
     tupla = [auxVector(1),auxVector(2)];
-    matrix = [matrix; tupla];
     auxVector = subVector(auxVector, newNum);
+    auxVector = sort(auxVector);
+    matrix = [matrix; auxVector];
   endfor
   matrix
+  
