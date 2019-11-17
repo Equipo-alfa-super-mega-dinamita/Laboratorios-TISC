@@ -1,14 +1,9 @@
-function binary = huffman(vector)
-  matrix = [];
-  auxVector = vector;
-  auxVector = sort(auxVector);
-  matrix = [matrix; auxVector];
-  for i = 1:length(vector) -2
-    newNum = auxVector(1) + auxVector(2);
-    tupla = [auxVector(1),auxVector(2)];
-    auxVector = subVector(auxVector, newNum);
-    auxVector = sort(auxVector);
-    matrix = [matrix; auxVector];
+function binaryMatrix = huffman(vector)
+  #M = [0.3 0.25 0.2 0.12 0.08 0.05] prueba
+  len = length(vector);
+  for i = 1:len
+    value.p = vector(i);
+    value.b = auxHuffman(vector,i);
+    binaryMatrix(end+1) = value;
   endfor
-  matrix
   
