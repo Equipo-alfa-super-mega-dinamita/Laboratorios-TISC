@@ -7,9 +7,11 @@ function data = LBC_decoder(data_r)
   hamming_weight(1) = 10000;
   dmin = min(hamming_weight);
   syndrome = mod((data_r*H_transpose),2);
-  error_index = find_row(H_transpose,syndrome);
   c = data_r;
-  c(error_index) = mod(data_r(error_index) + 1,2);
+  if sum(syndrome,2) != 0
+    error_index = find_row(H_transpose,syndrome);
+    c(error_index) = mod(data_r(error_index) + 1,2);
+  endif
   index = find_row(code,c);
-  data = data_all(index,:);
+  data = data_all(index,:);   
 end
